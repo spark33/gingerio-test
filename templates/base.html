@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>{% block title %}OffTheGrid!{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'base-styles.css' %}">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="#" class="logo link">Insert Logo</a>
+			<a href="{% url 'vendors:index' %}" class="nav-link link">Vendors</a>
+			<a href="{% url 'events:index' %}" class="nav-link link">Events</a>
+		</nav>
+	</header>
+	<!-- add a buffer the same size as the fixed nav to prevent overlap -->
+  <div id="buffer"></div>
+
+  <main>
+		{% block content %}
+		{% endblock %}
+	</main>
+
+	<footer>
+		<p>
+			Made by <a href="http://seanpark.xyz" target="_blank" class="link">Sean Park</a>
+		</p>
+		<h5>Ginger.io Django Test</h5>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Signika');
+
+/* UNIVERSAL STYLES */
+
+html
+{
+	font-family: 'Signika', sans-serif;
+}
+
+*
+{
+	max-width: 100%;
+}
+
+body
+{
+	margin: 0;
+}
+
+a
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+.link
+{
+  color: #27a599;
+  text-decoration: none;
+  transition: all .35s ease;
+  line-height: 25px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.link:hover
+{
+  border-color: #27a599;
+}
+
+table
+{
+	table-layout: fixed;
+	width: 100%;
+}
+
+table td
+{
+	padding: 10px;
+	vertical-align: top;
+	text-align: left;
+}
+
+/* SECTION SPECIFIC STYLES */
+
+header
+{
+  padding: 20px 2% 20px 5%;
+  height: 20px;
+  background-color: #333;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 93%;
+}
+
+header a
+{
+  line-height: 20px;
+  color: white !important;
+}
+
+header a:hover
+{
+  color: #26a69a !important;
+  border-color: #27a599;
+}
+
+.logo
+{
+  float: left;
+}
+
+.nav-link
+{
+  float: right;
+  margin: 0 30px;
+}
+
+#buffer
+{
+  height: 60px;
+}
+
+main
+{
+	padding: 4% 10%;
+	text-align: center;
+}
+
+#vendor-list td,
+#event-list td
+{
+	padding: 20px;
+	vertical-align: top;
+}
+
+#vendor-list td img,
+#event-list td img
+{
+	width: 100%;
+}
+
+#vendor-list td p,
+#event-list td p
+{
+	color: #777;
+}
+
+footer
+{
+	margin: 0;
+	background: #333;
+	color: white;
+	padding: 5% 10%;
+	text-align: center;
+}

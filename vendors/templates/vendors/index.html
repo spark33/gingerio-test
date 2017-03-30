@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}	
+
+{% block title %}Vendors{% endblock %}
+
+{% block content %}
+
+	{% if vendor_list %}
+	  <table id="vendor-list">
+	    {% for vendor in vendor_list %}
+	    	<tr>
+	        <td>
+	        	<a href="{% url 'vendors:detail' vendor.id %}"><img src="{% static 'vendor.jpg' %}"></a>
+	        </td>
+	        <td colspan="3">
+	        	<a href="{% url 'vendors:detail' vendor.id %}">
+	        	 	<h3>{{vendor.name}}</h3>
+	        	</a>
+	        	<p>{{vendor.description | truncatechars:50 }}</p>
+	        	<ul>
+	        		{% for event in vendor.events.all|slice:"3" %}
+		        		<li>
+		        			<a href="{% url 'events:detail' event.id %}" class="link">{{event}}</a>
+		        		</li>
+	        		{% endfor %}
+	        	</ul>
+	        </td>
+	    	</tr>
+	    {% endfor %}
+	  </table>
+	{% else %}
+	    <p>No vendors are available.</p>
+	{% endif %}
+
+{% endblock %}

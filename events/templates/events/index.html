@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+	{% if upcoming_events_list %}
+		<table id="event-list">
+	    {% for event in upcoming_events_list %}
+	    <tr>
+	        <td>
+	        	<a href="{% url 'events:detail' event.id %}">
+	        		<img src="{% static 'event.png' %}">
+	        	</a>
+	        </td>
+	        <td colspan="3">
+	        	<a href="{% url 'events:detail' event.id %}">
+	        		<h3>{{event.name}}</h3>
+	        	</a>
+	        	<p>@ {{event.location}}</p>
+	        	<ul>
+	        		{% for vendor in event.vendor_set.all|slice:"3" %}
+		        		<li>
+		        			<a href="{% url 'vendors:detail' vendor.id %}" class="link">{{vendor}}</a>
+		        		</li>
+	        		{% endfor %}
+	        	</ul>
+	        </td>
+	    </tr>
+	    {% endfor %}
+	  </table>
+	{% else %}
+	    <p>No events are available.</p>
+	{% endif %}
+{% endblock %}

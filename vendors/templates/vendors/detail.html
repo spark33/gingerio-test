@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Vendor: {{vendor}}{% endblock %}
+
+{% block content %}
+	
+	<table>
+		<td style="padding-left: 0;">
+			<img src="{% static 'vendor.jpg' %}">
+		</td>
+		<td>
+			<h1>{{ vendor }}</h1>
+			<p>{{ vendor.description | truncatechars:100 }}</p>
+		</td>
+	</table>
+
+	<h2 style="margin: 60px 0 40px 0;">Come find us at these events:</h2>
+	<table>
+		{% for event in vendor.events.all|slice:"4" %}
+		<tr>
+			<td>
+				<img src="{% static 'event.png' %}">
+			</td>
+			<td colspan="3">
+				<h4><a href="{% url 'events:detail' event.id %}" class="link">{{event}}</a></h4>
+				<small>@ {{event.location}}</small>
+			</td>
+		{% endfor %}
+	</table>
+
+{% endblock %}
