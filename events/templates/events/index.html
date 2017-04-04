@@ -4,9 +4,9 @@
 {% block title %}Events{% endblock %}
 
 {% block content %}
-	{% if upcoming_events_list %}
+	{% if events %}
 		<table id="event-list">
-	    {% for event in upcoming_events_list %}
+	    {% for event in events %}
 	    <tr>
 	        <td>
 	        	<a href="{% url 'events:detail' event.id %}">
@@ -29,6 +29,23 @@
 	    </tr>
 	    {% endfor %}
 	  </table>
+	  <div class="pagination">
+	    <span class="step-links">
+
+	    	<span class="current">
+            Page {{ events.number }} of {{ events.paginator.num_pages }}
+        </span>
+        <br/>
+
+        {% if events.has_previous %}
+            <a href="?page={{ events.previous_page_number }}" class="link">previous </a>
+        {% endif %}
+
+        {% if events.has_next %}
+            <a href="?page={{ events.next_page_number }}" class="link"> next</a>
+        {% endif %}
+	    </span>
+		</div>
 	{% else %}
 	    <p>No events are available.</p>
 	{% endif %}

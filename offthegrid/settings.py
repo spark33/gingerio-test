@@ -82,6 +82,10 @@ DATABASES = {
     }
 }
 
+FIXTURE_DIRS = (
+   os.path.join(BASE_DIR, "fixtures"),
+)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators

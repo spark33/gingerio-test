@@ -1,0 +1,1 @@
+[{"model": "vendors.vendor", "pk": 1, "fields": {"name": "The Waffle Roost", "description": "Best Waffles in SF!", "events": [1]}}, {"model": "vendors.vendor", "pk": 2, "fields": {"name": "It's All Gravy", "description": "The best and only gravy vendor in SF!", "events": [2, 3]}}]

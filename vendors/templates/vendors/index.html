@@ -5,9 +5,9 @@
 
 {% block content %}
 
-	{% if vendor_list %}
+	{% if vendors %}
 	  <table id="vendor-list">
-	    {% for vendor, event_count in vendor_list %}
+	    {% for vendor, event_count in vendors %}
 	    	<tr>
 	        <td>
 	        	<a href="{% url 'vendors:detail' vendor.id %}"><img src="{% static 'vendor.jpg' %}"></a>
@@ -29,6 +29,21 @@
 	    	</tr>
 	    {% endfor %}
 	  </table>
+	  <div class="pagination">
+	    <span class="step-links">
+        {% if vendors.has_previous %}
+            <a href="?page={{ vendors.previous_page_number }}" class="link">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ vendors.number }} of {{ vendors.paginator.num_pages }}
+        </span>
+
+        {% if vendors.has_next %}
+            <a href="?page={{ vendors.next_page_number }}" class="link">next</a>
+        {% endif %}
+	    </span>
+		</div>
 	{% else %}
 	    <p>No vendors are available.</p>
 	{% endif %}
